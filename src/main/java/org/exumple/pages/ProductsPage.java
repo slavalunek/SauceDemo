@@ -31,7 +31,8 @@ public class ProductsPage extends BasePage {
     public void openShoppingCart() {
         driver.findElement(SHOPPING_CART).click();
     }
-    public boolean getYourCart(){
-       return driver.findElement(TITLE_CART).isDisplayed();
+
+    public boolean getYourCart() {
+        return driver.findElement(TITLE_CART).isDisplayed();
     }
 }

@@ -18,29 +18,31 @@ public class CartTest extends BaseTest {
         loginPage.openAndLoginUser();
         productsPage.addToCart("Sauce Labs Backpack");
         productsPage.openShoppingCart();
-        cartPage.removeProduct().click();
-        Assert.assertEquals(cartPage.getInventoryItemName2(),0,"product is removed");
+        cartPage.removeProduct("Sauce Labs Backpack");
+        Assert.assertEquals(cartPage.getAllInventoryItemName(), 0, "product is removed");
     }
+
     @Test
-    public void openBurgerMenu(){
+    public void openBurgerMenu() {
         loginPage.openAndLoginUser();
         productsPage.openShoppingCart();
         cartPage.burgerMenuButton();
-        Assert.assertTrue(cartPage.BurgerMenu(),"error the burger menu");
+        Assert.assertTrue(cartPage.burgerMenu(), "error the burger menu");
     }
+
     @Test
-    public void backToPageProducts(){
+    public void backToPageProducts() {
         loginPage.openAndLoginUser();
         productsPage.openShoppingCart();
         cartPage.clickContinueShopping();
-        Assert.assertTrue(productsPage.getTitle().isDisplayed(),"error of continue shopping button");
+        Assert.assertTrue(productsPage.getTitle().isDisplayed(), "error of continue shopping button");
     }
+
     @Test
-    public void openToPageCheckoutPage(){
+    public void openToPageCheckoutPage() {
         loginPage.openAndLoginUser();
         productsPage.openShoppingCart();
         cartPage.clickCheckOut();
-        Assert.assertTrue(cartPage.checkoutYourInformation().isDisplayed(),"error of checkout button");
+        Assert.assertTrue(cartPage.getCheckoutYourInformation().isDisplayed(), "error of checkout button");
     }
-
 }

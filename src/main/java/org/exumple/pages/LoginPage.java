@@ -31,7 +31,8 @@ public class LoginPage extends BasePage {
     public String getError() {
         return driver.findElement(ERROR).getText();
     }
-    public void openAndLoginUser(){
+
+    public void openAndLoginUser() {
         open();
         loginAsStandardUser();
     }
