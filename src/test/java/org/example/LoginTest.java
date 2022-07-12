@@ -9,7 +9,9 @@ public class LoginTest extends BaseTest {
     @Test
     public void userShouldLoginWithValidCredentials() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        String user = System.getProperty("username");
+        String password = System.getProperty("password");
+        loginPage.login(user, password);
         assertTrue(productsPage.getTitle().isDisplayed(), "User was not logged in");
     }
 
