@@ -1,5 +1,6 @@
 package org.exumple.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +23,7 @@ public class CartPage extends BasePage {
         return driver.findElement(INVENTORY_ITEM_NAME);
     }
 
+    @Step("click on the button remove{productName}")
     public void removeProduct(String productName) {
      By fullLocator = By.xpath(String.format(remove,productName));
      driver.findElement(fullLocator).click();
@@ -31,6 +33,7 @@ public class CartPage extends BasePage {
         return driver.findElements(INVENTORY_ITEM_NAME).size();
     }
 
+    @Step("click on the button burger menu")
     public void burgerMenuButton() {
         driver.findElement(BURGER_MENU_BUTTON).click();
     }
@@ -39,10 +42,12 @@ public class CartPage extends BasePage {
         return driver.findElement(BURGER_MENU).isDisplayed();
     }
 
+    @Step("click on the button continue shopping")
     public void clickContinueShopping() {
         driver.findElement(CONTINUE_SHOPPING).click();
     }
 
+    @Step("click on the button checkout")
     public void clickCheckOut() {
         driver.findElement(CHECKOUT).click();
     }

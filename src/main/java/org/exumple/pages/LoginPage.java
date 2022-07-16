@@ -1,5 +1,6 @@
 package org.exumple.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,10 +15,12 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    @Step("The user opens the site Sauce Demo")
     public void open() {
         driver.get(BASE_URL);
     }
 
+    @Step("Enters login{user}, password{password} and click login button")
     public void login(String user, String password) {
         driver.findElement(USER_NAME_INPUT).sendKeys(user);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -32,6 +35,7 @@ public class LoginPage extends BasePage {
         return driver.findElement(ERROR).getText();
     }
 
+    @Step("The user opens the site Sauce Demo and registered")
     public void openAndLoginUser() {
         open();
         loginAsStandardUser();

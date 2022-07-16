@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class CartTest extends BaseTest {
 
-    @Test
+    @Test(description = "checking that the user has added the desired product")
     public void complianceOfTheAddedProduct() {
         loginPage.openAndLoginUser();
         productsPage.addToCart("Sauce Labs Backpack");
@@ -13,7 +13,7 @@ public class CartTest extends BaseTest {
         Assert.assertEquals(cartPage.getInventoryItemName().getText(), "Sauce Labs Backpack", "error add to product");
     }
 
-    @Test
+    @Test(description = "remove product from the basket")
     public void removeProduct() {
         loginPage.openAndLoginUser();
         productsPage.addToCart("Sauce Labs Backpack");
@@ -22,7 +22,7 @@ public class CartTest extends BaseTest {
         Assert.assertEquals(cartPage.getAllInventoryItemName(), 0, "product is removed");
     }
 
-    @Test
+    @Test(description = "open the burger menu")
     public void openBurgerMenu() {
         loginPage.openAndLoginUser();
         productsPage.openShoppingCart();
@@ -30,7 +30,7 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(cartPage.burgerMenu(), "error the burger menu");
     }
 
-    @Test
+    @Test(description = "back to page products from the basket")
     public void backToPageProducts() {
         loginPage.openAndLoginUser();
         productsPage.openShoppingCart();
@@ -38,7 +38,7 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(productsPage.getTitle().isDisplayed(), "error of continue shopping button");
     }
 
-    @Test
+    @Test(description = "open to page checkout page")
     public void openToPageCheckoutPage() {
         loginPage.openAndLoginUser();
         productsPage.openShoppingCart();

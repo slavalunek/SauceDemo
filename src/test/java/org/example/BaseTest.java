@@ -6,6 +6,7 @@ import org.exumple.pages.LoginPage;
 import org.exumple.pages.ProductsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -20,23 +21,24 @@ public class BaseTest {
     CartPage cartPage;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp(ITestContext iTestContext) {
         //Initialize web driver and create driver instance
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         //Set up driver settings
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        iTestContext.setAttribute("driver",driver);
         //Create pages
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
     }
 
-//    @AfterMethod(alwaysRun = true)
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
