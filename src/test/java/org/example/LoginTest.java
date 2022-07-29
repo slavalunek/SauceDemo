@@ -14,7 +14,6 @@ public class LoginTest extends BaseTest {
     public void userShouldLoginWithValidCredentials() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        Assert.fail();
         assertTrue(productsPage.getTitle().isDisplayed(), "User was not logged in");
     }
 
@@ -22,7 +21,6 @@ public class LoginTest extends BaseTest {
     public void passwordShouldBeRequiredForLogin() {
         loginPage.open();
         loginPage.login("standard_user", "");
-        Assert.fail();
         assertEquals(loginPage.getError(), "Epic sadface: Password is required", "The error is incorrect");
     }
 }
