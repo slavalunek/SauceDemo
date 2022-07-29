@@ -19,6 +19,7 @@
         <aspectj.version>1.9.9</aspectj.version>
         <allure-testng>2.18.1</allure-testng>
         <surefire.version>3.0.0-M7</surefire.version>
+        <maven.compiler.version>3.10.1</maven.compiler.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -56,6 +57,16 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
